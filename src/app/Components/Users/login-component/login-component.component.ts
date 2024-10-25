@@ -4,12 +4,12 @@ import { UsersService } from '../../../Services/Users/users.service';
 
 @Component({
   selector: 'app-login-commponent',
-  templateUrl: './login-commponent.component.html',
-  styleUrl: './login-commponent.component.css',
+  templateUrl: './login-component.component.html',
+  styleUrl: './login-component.component.css',
   standalone: true,
   imports: [ReactiveFormsModule]
 })
-export class LoginCommponentComponent {
+export class LoginComponentComponent {
   loginForm = new FormGroup({
     username: new FormControl(),
     password: new FormControl(),
