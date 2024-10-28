@@ -12,7 +12,7 @@ export const routes: Routes = [
     path: 'login', component: LoginComponent
   },
   {
-    path: 'signup', component: UserRegistrationComponent
+    path: 'register', component: UserRegistrationComponent
   },
   {
     path: 'jobsearch', component: JobSearchComponent, canActivate: [authGuard]
