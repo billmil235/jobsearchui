@@ -10,10 +10,9 @@ import { tap } from 'rxjs';
 // https://jasonwatmore.com/post/2022/11/29/angular-14-user-registration-and-login-example-tutorial
 
 export class UsersService {
-  httpClient = inject(HttpClient);
   baseUrl = '/api';
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   login(data: any) {
     return this.httpClient.post(`${this.baseUrl}/login`, data)

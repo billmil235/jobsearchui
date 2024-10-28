@@ -9,7 +9,4 @@ import { UsersService } from '../../../Services/Users/users.service';
   styleUrl: './user-registration.component.css'
 })
 export class UserRegistrationComponent {
-
-  contructor(private usersService: UsersService) {}
-
 }
