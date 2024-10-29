@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
-import { tap } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { AuthenticatedUser } from '../../Models/Users/authenticated-user.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -10,22 +10,26 @@ import { tap } from 'rxjs';
 // https://jasonwatmore.com/post/2022/11/29/angular-14-user-registration-and-login-example-tutorial
 
 export class UsersService {
-  baseUrl = '/api';
+  baseUrl = 'http://localhost:5228';
 
   constructor(private httpClient: HttpClient) { }
 
   login(data: any) {
-    return this.httpClient.post(`${this.baseUrl}/login`, data)
-      .pipe(tap((result: any) => {
-        localStorage.setItem('authUser', JSON.stringify(result));
-      }));
+    return this.httpClient.post<AuthenticatedUser>(`${this.baseUrl}/Login`, data)
+      .subscribe(config => {
+        localStorage.setItem('token', config.token);
+      })
   }
 
   isLoggedIn() {
-    return localStorage.getItem('authUser') !== null;
+    return localStorage.getItem('token') !== null;
+  }
+
+  getToken(): string {
+    return localStorage.getItem('token') ?? '';
   }
 
   logout() {
-    localStorage.removeItem('authUser');
+    localStorage.removeItem('token');
   }
 }
