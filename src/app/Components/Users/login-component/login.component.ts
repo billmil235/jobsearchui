@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { UsersService } from '../../../Services/Users/users.service';
-import {RouterModule} from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -16,9 +16,15 @@ export class LoginComponent {
     password: new FormControl(),
   });
 
-  constructor(private usersService: UsersService) { }
+  constructor(private usersService: UsersService, private router: Router) { }
 
   login(): void {
-    this.usersService.login({username: this.loginForm.value.username, password: this.loginForm.value.password });
+    this.usersService.login({username: this.loginForm.value.username, password: this.loginForm.value.password })
+      .subscribe((data: any) => {
+        if(this.usersService.isLoggedIn()){
+          this.router.navigate(['/jobsearch']);
+        }
+        console.log(data);
+      });
   }
 }

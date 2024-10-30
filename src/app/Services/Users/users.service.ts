@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthenticatedUser } from '../../Models/Users/authenticated-user.interface';
+import {tap} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,13 +17,14 @@ export class UsersService {
 
   login(data: any) {
     return this.httpClient.post<AuthenticatedUser>(`${this.baseUrl}/Login`, data)
-      .subscribe(config => {
-        localStorage.setItem('token', config.token);
-      })
+      .pipe(tap((result: any) => {
+        localStorage.setItem('authUser', JSON.stringify(result));
+      }));
   }
 
   isLoggedIn() {
-    return localStorage.getItem('token') !== null;
+    let token = localStorage.getItem('token');
+    return token !== null;
   }
 
   getToken(): string {
