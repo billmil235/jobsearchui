@@ -18,7 +18,7 @@ export class UsersService {
   login(data: any) {
     return this.httpClient.post<AuthenticatedUser>(`${this.baseUrl}/Login`, data)
       .pipe(tap((result: any) => {
-        localStorage.setItem('authUser', JSON.stringify(result));
+        localStorage.setItem('token', result.token);
       }));
   }
 
