@@ -6,7 +6,13 @@ import {JobSearchComponent} from './Components/Search/job-search/job-search.comp
 
 export const routes: Routes = [
   {
+    path: '', redirectTo: '/jobsearch', pathMatch: 'full',
+  },
+  {
     path: '', redirectTo: '/login', pathMatch: 'full'
+  },
+  {
+    path: 'logout', component: LoginComponent,
   },
   {
     path: 'login', component: LoginComponent
