@@ -11,7 +11,7 @@ export class SearchListService {
   constructor(private httpClient: HttpClient) { }
 
   getSearchList() {
-    return this.httpClient.post<Search>(`${this.baseUrl}/Searches`, data);
+    return this.httpClient.get<Search[]>(`${this.baseUrl}/Searches`);
   }
 
   updateSearch(data: Search) {
@@ -23,6 +23,6 @@ export class SearchListService {
   }
 
   deleteSearch(searchId: string) {
-    
+
   }
 }

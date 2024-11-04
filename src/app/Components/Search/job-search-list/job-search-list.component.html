@@ -8,6 +8,16 @@
     </tr>
   </thead>
   <tbody class="table-striped table-group-divider">
-
+    <tr *ngFor="let search of searchList">
+      <td>
+        {{ search.searchName }}
+      </td>
+      <td>
+        {{ search.startDate }}
+      </td>
+      <td>
+        {{ search.endDate }}
+      </td>
+    </tr>
   </tbody>
 </table>
