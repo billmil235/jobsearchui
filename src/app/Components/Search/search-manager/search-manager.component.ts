@@ -2,11 +2,14 @@ import {Component, OnInit} from '@angular/core';
 import {SearchListService} from '../../../Services/Searches/search-list.service';
 import {Search} from '../../../Models/Search/search.interface';
 import {ActivatedRoute, Router} from '@angular/router';
+import {ApplicationListComponent} from '../application-list/application-list.component';
 
 @Component({
   selector: 'app-search-manager',
   standalone: true,
-  imports: [],
+  imports: [
+    ApplicationListComponent
+  ],
   templateUrl: './search-manager.component.html',
   styleUrl: './search-manager.component.css'
 })
@@ -24,7 +27,6 @@ export class SearchManagerComponent implements OnInit {
     }
 
     this.searchList.getSearchById(this.searchId).subscribe(data => {
-      debugger;
       this.search = data[0];
     })
   }

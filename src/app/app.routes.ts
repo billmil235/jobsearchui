@@ -26,9 +26,6 @@ export const routes: Routes = [
     path: 'jobsearch', component: JobSearchComponent, canActivate: [authGuard]
   },
   {
-    path: 'createjobsearch', component: NewJobSearchComponent, canActivate: [authGuard]
-  },
-  {
     path: 'managesearch/:searchId', component: SearchManagerComponent, canActivate: [authGuard]
   }
 ];
