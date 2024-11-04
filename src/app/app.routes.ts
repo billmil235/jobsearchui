@@ -3,6 +3,8 @@ import {LoginComponent} from './Components/Users/login-component/login.component
 import {UserRegistrationComponent} from './Components/Users/user-registration/user-registration.component';
 import {authGuard} from './Services/auth.guard';
 import {JobSearchComponent} from './Components/Search/job-search/job-search.component';
+import {NewJobSearchComponent} from './Components/Search/new-job-search/new-job-search.component';
+import {SearchManagerComponent} from './Components/Search/search-manager/search-manager.component';
 
 export const routes: Routes = [
   {
@@ -22,5 +24,11 @@ export const routes: Routes = [
   },
   {
     path: 'jobsearch', component: JobSearchComponent, canActivate: [authGuard]
+  },
+  {
+    path: 'createjobsearch', component: NewJobSearchComponent, canActivate: [authGuard]
+  },
+  {
+    path: 'managesearch/:searchId', component: SearchManagerComponent, canActivate: [authGuard]
   }
 ];

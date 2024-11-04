@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SearchListService } from '../../../Services/Searches/search-list.service';
 import { Search } from '../../../Models/Search/search.interface';
 import {NgForOf} from '@angular/common';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-job-search-list',
@@ -16,7 +17,7 @@ import {NgForOf} from '@angular/common';
 export class JobSearchListComponent implements OnInit {
   searchList: Search[] = [];
 
-  constructor(private _searchService: SearchListService) {}
+  constructor(private _searchService: SearchListService, private router: Router) {}
 
   ngOnInit() {
     this._searchService.getSearchList().subscribe(data => {
@@ -24,4 +25,15 @@ export class JobSearchListComponent implements OnInit {
     });
   }
 
+  newJobSearch() {
+    this.router.navigate(['/createjobsearch']);
+  }
+
+  manageSearch(searchId: string) {
+    this.router.navigate(['/managesearch', searchId]);
+  }
+
+  deleteSearch(searchId: string) {
+
+  }
 }

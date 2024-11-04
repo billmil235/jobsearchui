@@ -1,23 +1,39 @@
-<table class="table table-bordered table-sm caption-top">
-  <caption>List Of Searches</caption>
-  <thead>
-    <tr>
-      <th scope="col">Search Name</th>
-      <th scope="col">Start Date</th>
-      <th scope="col">End Date</th>
-    </tr>
-  </thead>
-  <tbody class="table-striped table-group-divider">
-    <tr *ngFor="let search of searchList">
-      <td>
-        {{ search.searchName }}
-      </td>
-      <td>
-        {{ search.startDate }}
-      </td>
-      <td>
-        {{ search.endDate }}
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div class="card rounded border-2">
+  <div class="card-header">
+    <div class="row">
+      <div class="d-flex justify-content-between">
+        <h5 class="card-title text-nowrap">Search List</h5>
+        <button class="btn btn-dark text-nowrap" (click)="newJobSearch()">Create New Search</button>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <table class="table table-bordered table-sm caption-top">
+      <thead>
+        <tr>
+          <th scope="col">Search Name</th>
+          <th scope="col">Start Date</th>
+          <th scope="col">End Date</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody class="table-striped table-group-divider">
+        <tr *ngFor="let search of searchList">
+          <td>
+            {{ search.searchName }}
+          </td>
+          <td>
+            {{ search.startDate }}
+          </td>
+          <td>
+            {{ search.endDate }}
+          </td>
+          <td class="d-flex gap-2">
+            <button class="btn btn-outline-dark" (click)="manageSearch(search.searchId)">Manage</button>
+            <button class="btn btn-outline-danger" (click)="deleteSearch(search.searchId)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
