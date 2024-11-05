@@ -6,7 +6,7 @@ import { Search } from '../../Models/Search/search.interface';
   providedIn: 'root'
 })
 export class SearchListService {
-  baseUrl = 'http://localhost:5228';
+  baseUrl = '/api';
 
   constructor(private httpClient: HttpClient) { }
 

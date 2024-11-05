@@ -11,7 +11,7 @@ import {tap} from 'rxjs';
 // https://jasonwatmore.com/post/2022/11/29/angular-14-user-registration-and-login-example-tutorial
 
 export class UsersService {
-  baseUrl = 'http://localhost:5228';
+  baseUrl = '/api';
 
   constructor(private httpClient: HttpClient) { }
 

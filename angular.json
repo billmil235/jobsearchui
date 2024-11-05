@@ -38,7 +38,7 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
+                  "maximumWarning": "4MB",
                   "maximumError": "1MB"
                 },
                 {
@@ -59,15 +59,13 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "proxyConfig": "src/proxy.conf.json"
-          },
           "configurations": {
             "production": {
               "buildTarget": "jobsearchui:build:production"
             },
             "development": {
-              "buildTarget": "jobsearchui:build:development"
+              "buildTarget": "jobsearchui:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

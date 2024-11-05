@@ -3,12 +3,14 @@ import {SearchListService} from '../../../Services/Searches/search-list.service'
 import {Search} from '../../../Models/Search/search.interface';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ApplicationListComponent} from '../application-list/application-list.component';
+import {ApplicationComponent} from '../application/application.component';
 
 @Component({
   selector: 'app-search-manager',
   standalone: true,
   imports: [
-    ApplicationListComponent
+    ApplicationListComponent,
+    ApplicationComponent
   ],
   templateUrl: './search-manager.component.html',
   styleUrl: './search-manager.component.css'

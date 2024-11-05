@@ -12,4 +12,6 @@ import {NgForOf} from '@angular/common';
 })
 export class ApplicationListComponent {
   @Input() searchName!: string;
+
+  // https://medium.com/@ernestomancebo/native-html-dialog-in-angular-with-dialog-polyfill-2b99f5e2f4ae
 }
