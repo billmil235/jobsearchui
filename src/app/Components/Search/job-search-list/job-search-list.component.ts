@@ -33,7 +33,7 @@ export class JobSearchListComponent implements OnInit {
     this.router.navigate(['/managesearch', searchId]);
   }
 
-  deleteSearch(searchId: string) {
-
+  createNewApplication(searchId: string) {
+    this.router.navigate(['/edit-application', searchId]);
   }
 }

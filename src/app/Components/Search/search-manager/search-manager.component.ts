@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {SearchListService} from '../../../Services/Searches/search-list.service';
 import {Search} from '../../../Models/Search/search.interface';
 import {ActivatedRoute, Router} from '@angular/router';
-import {ApplicationListComponent} from '../application-list/application-list.component';
-import {ApplicationComponent} from '../application/application.component';
+import {ApplicationListComponent} from '../../Application/application-list/application-list.component';
+import {ApplicationComponent} from '../../Application/application/application.component';
 
 @Component({
   selector: 'app-search-manager',
@@ -32,6 +32,4 @@ export class SearchManagerComponent implements OnInit {
       this.search = data[0];
     })
   }
-
-  protected readonly JSON = JSON;
 }
