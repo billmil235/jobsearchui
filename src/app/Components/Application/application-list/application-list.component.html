@@ -19,7 +19,12 @@
       </tr>
       </thead>
       <tbody class="table-striped table-group-divider">
-
+        <tr *ngFor="let application of applicationList">
+          <td>{{ application.companyName }}</td>
+          <td>{{ convertApplicationTypeIdToString(application.applicationTypeId) }}</td>
+          <td>{{ convertApplicationSourceTypeIdToString(application.applicationSourceTypeId) }}</td>
+          <td>{{ application.applicationDate | date: 'MM-dd-yyyy' }}</td>
+        </tr>
       </tbody>
     </table>
   </div>

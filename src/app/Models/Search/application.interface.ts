@@ -1,9 +1,9 @@
 export interface Application {
-  ApplicationId: string;
-  SearchId: string;
-  ApplicationDate: Date;
-  CompanyName: string;
-  CompanyWebSite: string;
-  ApplicationTypeId: number;
-  ApplicationSourceTypeId: number;
+  applicationId: string | undefined;
+  searchId: string;
+  applicationDate: Date;
+  companyName: string;
+  companyWebSite: string;
+  applicationTypeId: number;
+  applicationSourceTypeId: number;
 }

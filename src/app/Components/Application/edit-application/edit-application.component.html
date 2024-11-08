@@ -9,19 +9,19 @@
         </div>
       </div>
       <div class="card-body">
-        <form class="">
+        <form class="" [formGroup]="applicationForm">
           <div class="row p-1">
             <div class="col-3">Company Name</div>
-            <div class="col-9"><input type="text" class="form-control"></div>
+            <div class="col-9"><input type="text" id="companyName" class="form-control" formControlName="companyName"></div>
           </div>
           <div class="row p-1">
             <div class="col-3">Company Web Site</div>
-            <div class="col-9"><input type="text" class="form-control"></div>
+            <div class="col-9"><input type="text" id="companyWebSite" class="form-control" formControlName="companyWebSite"></div>
           </div>
           <div class="row p-1">
             <div class="col-3">Application Type</div>
             <div class="col-9">
-              <select class="form-select" aria-label="Default select example">
+              <select class="form-select" aria-label="Default select example" id="applicationTypeId" formControlName="applicationTypeId">
                 <option *ngFor="let type of lookupService.ApplicationType" value="{{ type.applicationTypeId }}">{{ type.applicationTypeName }}</option>
               </select>
             </div>
@@ -29,7 +29,7 @@
           <div class="row p-1">
             <div class="col-3">Application Source</div>
             <div class="col-9">
-              <select class="form-select" aria-label="Default select example">
+              <select class="form-select" aria-label="Default select example" id="applicationSourceTypeId" formControlName="applicationSourceTypeId">
                 <option *ngFor="let type of lookupService.ApplicationSourceType" value="{{ type.applicationSourceTypeId }}">{{ type.applicationSourceTypeName }}</option>
               </select>
             </div>
@@ -39,7 +39,7 @@
     </div>
     <div class="card-footer">
       <div class="d-flex justify-content-between p-3">
-        <button class="btn btn-primary">Save Application</button>
+        <button class="btn btn-primary" (click)="createNewApplication()">Save Application</button>
         <button class="btn btn-secondary">Cancel</button>
       </div>
     </div>
