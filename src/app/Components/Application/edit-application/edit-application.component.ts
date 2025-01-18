@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {LookupService} from '../../../Services/lookup.service';
 import {formatDate, NgForOf} from '@angular/common';
 import {Application} from '../../../Models/Search/application.interface';
@@ -30,6 +30,7 @@ export class EditApplicationComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private applicationService: ApplicationService,
+              private router: Router,
               public lookupService: LookupService) {}
 
   ngOnInit() {
@@ -57,6 +58,12 @@ export class EditApplicationComponent implements OnInit {
     }
 
     this.applicationService.createApplication(application).subscribe();
+
+    this.router.navigate(['/managesearch', this.searchId]);
+  }
+
+  cancelApplication(): void {
+    this.router.navigate(['/managesearch', this.searchId]);
   }
 
   protected readonly LookupService = LookupService;

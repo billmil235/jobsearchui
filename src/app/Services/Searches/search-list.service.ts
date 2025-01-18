@@ -15,7 +15,7 @@ export class SearchListService {
   }
 
   getSearchById(searchId: string) {
-    return this.httpClient.get<Search[]>(`${this.baseUrl}/GetSearch/${searchId}`);
+    return this.httpClient.get<Search>(`${this.baseUrl}/GetSearch/${searchId}`);
   }
 
   updateSearch(data: Search) {

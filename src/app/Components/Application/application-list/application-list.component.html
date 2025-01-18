@@ -24,6 +24,7 @@
           <td>{{ convertApplicationTypeIdToString(application.applicationTypeId) }}</td>
           <td>{{ convertApplicationSourceTypeIdToString(application.applicationSourceTypeId) }}</td>
           <td>{{ application.applicationDate | date: 'MM-dd-yyyy' }}</td>
+          <td><button>View</button><button (click)="deleteApplication(application.applicationId)">Delete</button></td>
         </tr>
       </tbody>
     </table>

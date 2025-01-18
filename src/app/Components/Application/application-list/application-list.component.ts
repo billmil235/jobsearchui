@@ -29,10 +29,7 @@ export class ApplicationListComponent implements OnInit {
     private lookupService: LookupService) { }
 
   ngOnInit() {
-    this.applicationService.listApplications(this.searchId)
-    .subscribe(data => {
-      this.applicationList = data;
-    });
+    this.refreshData();
   }
 
   createNewApplication() {
@@ -47,5 +44,20 @@ export class ApplicationListComponent implements OnInit {
   convertApplicationSourceTypeIdToString(applicationSourceTypeId: number): string {
     let applicationSourceType = this.lookupService.ApplicationSourceType?.find(type => type.applicationSourceTypeId == applicationSourceTypeId);
     return applicationSourceType?.applicationSourceTypeName ?? '';
+  }
+
+  deleteApplication(applicationId: string | undefined): void {
+    if(applicationId) {
+      this.applicationService.deleteApplication(applicationId).subscribe(() => {
+        this.refreshData();
+      });
+    }
+  }
+
+  private refreshData(): void {
+    this.applicationService.listApplications(this.searchId)
+      .subscribe(data => {
+        this.applicationList = data;
+      });
   }
 }

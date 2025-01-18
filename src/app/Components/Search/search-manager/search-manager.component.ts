@@ -29,7 +29,7 @@ export class SearchManagerComponent implements OnInit {
     }
 
     this.searchList.getSearchById(this.searchId).subscribe(data => {
-      this.search = data[0];
+      this.search = data;
     })
   }
 }
