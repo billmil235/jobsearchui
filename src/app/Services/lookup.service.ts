@@ -13,11 +13,11 @@ export class LookupService {
   public ApplicationType: ApplicationType[] | undefined;
 
   constructor(private httpClient: HttpClient) {
-    this.httpClient.get<ApplicationSourceType[]>(`${this.baseUrl}/ApplicationSources`).subscribe(data => {
+    this.httpClient.get<ApplicationSourceType[]>(`${this.baseUrl}/Application/Sources`).subscribe(data => {
       this.ApplicationSourceType = data;
     });
 
-    this.httpClient.get<ApplicationType[]>(`${this.baseUrl}/ApplicationTypes`).subscribe(data => {
+    this.httpClient.get<ApplicationType[]>(`${this.baseUrl}/Application/Types`).subscribe(data => {
       this.ApplicationType = data;
     });
   }

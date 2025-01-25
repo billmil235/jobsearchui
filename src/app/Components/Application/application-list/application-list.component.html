@@ -2,7 +2,7 @@
   <div class="card-header">
     <div class="row">
       <div class="d-flex justify-content-between">
-        <h5 class="card-title text-nowrap">Application List - {{ searchName }}</h5>
+        <h5 class="card-title text-nowrap">Application List</h5>
         <button class="btn btn-dark text-nowrap" (click)="createNewApplication()">New Application</button>
       </div>
     </div>
@@ -24,7 +24,7 @@
           <td>{{ convertApplicationTypeIdToString(application.applicationTypeId) }}</td>
           <td>{{ convertApplicationSourceTypeIdToString(application.applicationSourceTypeId) }}</td>
           <td>{{ application.applicationDate | date: 'MM-dd-yyyy' }}</td>
-          <td><button>View</button><button (click)="deleteApplication(application.applicationId)">Delete</button></td>
+          <td><button (click)="previewApplication(application.applicationId)">View</button><button (click)="deleteApplication(application.applicationId)">Delete</button></td>
         </tr>
       </tbody>
     </table>

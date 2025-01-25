@@ -12,18 +12,18 @@ export class ApplicationService {
   constructor(private httpClient: HttpClient) { }
 
   listApplications(searchId: string) {
-    return this.httpClient.get<Application[]>(`${this.baseUrl}/ListApplications/${searchId}`);
+    return this.httpClient.get<Application[]>(`${this.baseUrl}/Application/List/${searchId}`);
   }
 
   getApplication(applicationId: string) {
-    return this.httpClient.get<Application>(`${this.baseUrl}/${applicationId}`);
+    return this.httpClient.get<Application>(`${this.baseUrl}/Application/${applicationId}`);
   }
 
   createApplication(application: Application): Observable<Application> {
-    return this.httpClient.post<Application>(`${this.baseUrl}/CreateApplication`, application);
+    return this.httpClient.post<Application>(`${this.baseUrl}/Application`, application);
   }
 
   deleteApplication(applicationId: string): Observable<void> {
-    return this.httpClient.delete<void>(`${this.baseUrl}/DeleteApplication/${applicationId}`);
+    return this.httpClient.delete<void>(`${this.baseUrl}/Application/${applicationId}`);
   }
 }

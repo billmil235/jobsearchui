@@ -1,10 +1,10 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {DatePipe, NgForOf} from '@angular/common';
 import {Router} from '@angular/router';
 import {ApplicationService} from '../../../Services/Searches/application.service';
 import {Application} from '../../../Models/Search/application.interface';
-import {producerUpdatesAllowed} from '@angular/core/primitives/signals';
 import {LookupService} from '../../../Services/lookup.service';
+import {ApplicationPreview} from '../../../Models/Application/application-preview.class';
 
 @Component({
   selector: 'app-application-list',
@@ -17,10 +17,10 @@ import {LookupService} from '../../../Services/lookup.service';
   styleUrl: './application-list.component.css'
 })
 export class ApplicationListComponent implements OnInit {
-  @Input() searchName!: string;
   @Input() searchId!: string;
 
   applicationList: Application[] | undefined;
+  applicationPreview: ApplicationPreview | undefined;
 
   // https://medium.com/@ernestomancebo/native-html-dialog-in-angular-with-dialog-polyfill-2b99f5e2f4ae
   constructor(
@@ -51,6 +51,14 @@ export class ApplicationListComponent implements OnInit {
       this.applicationService.deleteApplication(applicationId).subscribe(() => {
         this.refreshData();
       });
+    }
+  }
+
+  previewApplication(applicationId: string | undefined): void {
+    if(applicationId !== undefined) {
+      this.applicationPreview = new ApplicationPreview();
+      this.applicationPreview.applicationId = applicationId;
+      this.applicationPreview.companyName = "Test Company";
     }
   }
 
