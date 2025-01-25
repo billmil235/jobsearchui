@@ -1,10 +1,12 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {DatePipe, NgForOf} from '@angular/common';
 import {Router} from '@angular/router';
 import {ApplicationService} from '../../../Services/Searches/application.service';
 import {Application} from '../../../Models/Search/application.interface';
 import {LookupService} from '../../../Services/lookup.service';
 import {ApplicationPreview} from '../../../Models/Application/application-preview.class';
+import {Subject} from 'rxjs';
+import {ApplicationPreviewService} from '../../../Services/Application/application-preview.service';
 
 @Component({
   selector: 'app-application-list',
@@ -26,7 +28,8 @@ export class ApplicationListComponent implements OnInit {
   constructor(
     private router: Router,
     private applicationService: ApplicationService,
-    private lookupService: LookupService) { }
+    private lookupService: LookupService,
+    private applicationPreviewService: ApplicationPreviewService) { }
 
   ngOnInit() {
     this.refreshData();
@@ -59,6 +62,8 @@ export class ApplicationListComponent implements OnInit {
       this.applicationPreview = new ApplicationPreview();
       this.applicationPreview.applicationId = applicationId;
       this.applicationPreview.companyName = "Test Company";
+
+      this.applicationPreviewService.applicationPreviewSubject.next(this.applicationPreview);
     }
   }
 

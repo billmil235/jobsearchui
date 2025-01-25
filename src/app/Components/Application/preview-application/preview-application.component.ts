@@ -1,6 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {ApplicationPreview} from '../../../Models/Application/application-preview.class';
 import {NgIf} from '@angular/common';
+import {ApplicationPreviewService} from '../../../Services/Application/application-preview.service';
 
 @Component({
   selector: 'app-preview-application',
@@ -11,6 +12,19 @@ import {NgIf} from '@angular/common';
   templateUrl: './preview-application.component.html',
   styleUrl: './preview-application.component.css'
 })
-export class PreviewApplicationComponent {
-  @Input() applicationPreview!: ApplicationPreview | undefined;
+export class PreviewApplicationComponent implements OnInit, OnDestroy {
+
+  applicationPreview: ApplicationPreview | undefined;
+
+  constructor(private applicationPreviewService: ApplicationPreviewService) { }
+
+  ngOnInit() {
+    this.applicationPreviewService.applicationPreviewSubject.subscribe(data => {
+      this.applicationPreview = data;
+    })
+  }
+
+  ngOnDestroy() {
+    this.applicationPreviewService.applicationPreviewSubject.unsubscribe();
+  }
 }
