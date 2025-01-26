@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
     this.usersService.login({username: this.loginForm.value.username, password: this.loginForm.value.password })
       .subscribe((data: any) => {
         if(this.usersService.isLoggedIn()) {
-          this.router.navigate(['/jobsearch']);
+          this.router.navigate(['/job-search']);
         }
         console.log(data);
       });

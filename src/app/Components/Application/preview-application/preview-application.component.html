@@ -1,7 +1,29 @@
-<div *ngIf="applicationPreview != undefined">
-  <p>preview-application works!</p>
+<div class="card rounded border-2" *ngIf="applicationPreview != undefined">
+  <div class="card-header">
+    <div class="row">
+      <div class="d-flex justify-content-between">
+        <h5 class="card-title text-nowrap">{{ applicationPreview.companyName }}</h5>
+        <button class="btn btn-dark text-nowrap" (click)="manageApplication(applicationPreview.applicationId)">Manage Application</button>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-12">
+        <h6>Application Date: {{ applicationPreview.applicationDate | date: 'MM-dd-yyyy' }}</h6>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <h6>Notes</h6>
+      </div>
+      <div class="col-12">
+        {{ applicationPreview.notes }}
+      </div>
+    </div>
+  </div>
 </div>
 
-<div *ngIf="applicationPreview === undefined">
+<div class="row" *ngIf="applicationPreview === undefined">
   <h4>Please select an application from the list to preview.</h4>
 </div>

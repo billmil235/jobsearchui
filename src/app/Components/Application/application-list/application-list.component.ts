@@ -1,11 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {DatePipe, NgForOf} from '@angular/common';
 import {Router} from '@angular/router';
-import {ApplicationService} from '../../../Services/Searches/application.service';
+import {ApplicationService} from '../../../Services/Application/application.service';
 import {Application} from '../../../Models/Search/application.interface';
 import {LookupService} from '../../../Services/lookup.service';
 import {ApplicationPreview} from '../../../Models/Application/application-preview.class';
-import {Subject} from 'rxjs';
 import {ApplicationPreviewService} from '../../../Services/Application/application-preview.service';
 
 @Component({
@@ -22,7 +21,6 @@ export class ApplicationListComponent implements OnInit {
   @Input() searchId!: string;
 
   applicationList: Application[] | undefined;
-  applicationPreview: ApplicationPreview | undefined;
 
   // https://medium.com/@ernestomancebo/native-html-dialog-in-angular-with-dialog-polyfill-2b99f5e2f4ae
   constructor(
@@ -59,11 +57,9 @@ export class ApplicationListComponent implements OnInit {
 
   previewApplication(applicationId: string | undefined): void {
     if(applicationId !== undefined) {
-      this.applicationPreview = new ApplicationPreview();
-      this.applicationPreview.applicationId = applicationId;
-      this.applicationPreview.companyName = "Test Company";
-
-      this.applicationPreviewService.applicationPreviewSubject.next(this.applicationPreview);
+      this.applicationPreviewService.getApplicationPreview(applicationId).subscribe((preview: ApplicationPreview) => {
+        this.applicationPreviewService.applicationPreviewSubject.next(preview);
+      })
     }
   }
 

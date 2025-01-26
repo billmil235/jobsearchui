@@ -30,7 +30,7 @@ export class JobSearchListComponent implements OnInit {
   }
 
   manageSearch(searchId: string) {
-    this.router.navigate(['/managesearch', searchId]);
+    this.router.navigate(['/manage-search', searchId]);
   }
 
   createNewApplication(searchId: string) {

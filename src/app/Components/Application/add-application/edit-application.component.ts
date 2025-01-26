@@ -4,10 +4,10 @@ import {LookupService} from '../../../Services/lookup.service';
 import {formatDate, NgForOf} from '@angular/common';
 import {Application} from '../../../Models/Search/application.interface';
 import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
-import {ApplicationService} from '../../../Services/Searches/application.service';
+import {ApplicationService} from '../../../Services/Application/application.service';
 
 @Component({
-  selector: 'app-edit-application',
+  selector: 'app-edit-manage-application',
   standalone: true,
   imports: [
     NgForOf,
@@ -59,11 +59,11 @@ export class EditApplicationComponent implements OnInit {
 
     this.applicationService.createApplication(application).subscribe();
 
-    this.router.navigate(['/managesearch', this.searchId]);
+    this.router.navigate(['/manage-search', this.searchId]);
   }
 
   cancelApplication(): void {
-    this.router.navigate(['/managesearch', this.searchId]);
+    this.router.navigate(['/manage-search', this.searchId]);
   }
 
   protected readonly LookupService = LookupService;
