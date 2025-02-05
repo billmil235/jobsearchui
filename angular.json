@@ -35,6 +35,10 @@
           },
           "configurations": {
             "production": {
+              "outputPath": {
+                "base": "/var/www/jobsearch",
+                "browser": ""
+              },
               "budgets": [
                 {
                   "type": "initial",
