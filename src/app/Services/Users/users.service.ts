@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthenticatedUser } from '../../Models/Users/authenticated-user.interface';
 import {tap} from 'rxjs';
+import {Application} from '../../Models/Search/application.interface';
+import {User} from '../../Models/Users/user.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -33,5 +35,9 @@ export class UsersService {
 
   logout() {
     localStorage.removeItem('token');
+  }
+
+  register(data: User) {
+    return this.httpClient.post<void>(`${this.baseUrl}/Users/Register`, data);
   }
 }

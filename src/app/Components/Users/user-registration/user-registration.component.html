@@ -1,1 +1,49 @@
-<p>user-registration works!</p>
+<div class="row p-3 justify-content-center">
+  <div class="col-6">
+    <div class="card rounded border-2">
+      <div class="card-header">
+        <div class="row">
+          <div class="d-flex justify-content-between">
+            <h5 class="card-title text-nowrap">Welcome New Users</h5>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <form class="" [formGroup]="userForm">
+          <div class="row p-1">
+            <div class="col-12">
+              <label for="firstName" class="form-label">First Name</label>
+              <input type="text" id="firstName" class="form-control" formControlName="FirstName">
+            </div>
+            <div class="col-12">
+              <label for="lastName" class="form-label">Last Name</label>
+              <input type="text" id="lastName" class="form-control" formControlName="LastName">
+            </div>
+            <div class="col-12">
+              <label for="userName" class="form-label">User Name</label>
+              <input type="text" id="userName" class="form-control" formControlName="UserName">
+            </div>
+            <div class="col-12">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" id="password" class="form-control" formControlName="Password">
+            </div>
+            <div class="col-12">
+              <label for="confirmPassword" class="form-label">Confirm Password</label>
+              <input type="password" id="confirmPassword" class="form-control" formControlName="ConfirmPassword">
+            </div>
+            <div class="col-12">
+              <label for="dateOfBirth" class="form-label">Date Of Birth</label>
+              <input type="date" id="dateOfBirth" class="form-control" formControlName="DateOfBirth">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="card-footer">
+        <div class="d-flex justify-content-between p-3">
+          <button class="btn btn-primary" (click)="createNewUser()">Create User</button>
+          <button class="btn btn-secondary" (click)="cancelCreateNewUser()">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
