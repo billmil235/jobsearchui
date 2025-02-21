@@ -11,8 +11,8 @@ export class ApplicationService {
 
   constructor(private httpClient: HttpClient) { }
 
-  listApplications(searchId: string) {
-    return this.httpClient.get<Application[]>(`${this.baseUrl}/Application/List/${searchId}`);
+  listApplications(searchId: string, activeOnly: boolean): Observable<Application[]> {
+    return this.httpClient.get<Application[]>(`${this.baseUrl}/Application/List/${searchId}?activeOnly=${activeOnly}`);
   }
 
   getApplication(applicationId: string) {

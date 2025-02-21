@@ -6,13 +6,17 @@ import {Application} from '../../../Models/Search/application.interface';
 import {LookupService} from '../../../Services/lookup.service';
 import {ApplicationPreview} from '../../../Models/Application/application-preview.class';
 import {ApplicationPreviewService} from '../../../Services/Application/application-preview.service';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {FormsModule, NgModel} from '@angular/forms';
 
 @Component({
   selector: 'app-application-list',
   standalone: true,
   imports: [
     NgForOf,
-    DatePipe
+    DatePipe,
+    NgbModule,
+    FormsModule
   ],
   templateUrl: './application-list.component.html',
   styleUrl: './application-list.component.css'
@@ -21,6 +25,7 @@ export class ApplicationListComponent implements OnInit {
   @Input() searchId!: string;
 
   applicationList: Application[] | undefined;
+  activeOnly: boolean = false;
 
   // https://medium.com/@ernestomancebo/native-html-dialog-in-angular-with-dialog-polyfill-2b99f5e2f4ae
   constructor(
@@ -63,8 +68,12 @@ export class ApplicationListComponent implements OnInit {
     }
   }
 
-  private refreshData(): void {
-    this.applicationService.listApplications(this.searchId)
+  manageApplication(applicationId: string | undefined): void {
+    this.router.navigate(['/manage-application', applicationId]);
+  }
+
+  refreshData(): void {
+    this.applicationService.listApplications(this.searchId, this.activeOnly)
       .subscribe(data => {
         this.applicationList = data;
       });

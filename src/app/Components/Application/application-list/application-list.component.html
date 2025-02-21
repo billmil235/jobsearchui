@@ -3,7 +3,23 @@
     <div class="row">
       <div class="d-flex justify-content-between">
         <h5 class="card-title text-nowrap">Application List</h5>
-        <button class="btn btn-dark text-nowrap" (click)="createNewApplication()">New Application</button>
+
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="showActiveApplicationsOnly" [(ngModel)]="activeOnly" (change)="refreshData()">
+          <label class="form-check-label" for="showActiveApplicationsOnly">Active Applications Only</label>
+        </div>
+
+        <!-- Example split danger button -->
+        <div ngbDropdown class="btn-group">
+          <button type="button" class="btn btn-primary" (click)="createNewApplication()">New Application</button>
+          <button ngbDropdownToggle class="btn btn-primary" type="button" id="applicationActionList" aria-expanded="false">
+            <span class="visually-hidden">Toggle Dropdown</span>
+          </button>
+          <ul ngbDropdownMenu aria-labelledby="applicationActionList">
+            <li><button ngbDropdownItem class="dropdown-item" type="button" (click)="createNewApplication()">New Application</button></li>
+            <li><button ngbDropdownItem class="dropdown-item" type="button">Close Search</button></li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -24,7 +40,18 @@
           <td>{{ convertApplicationTypeIdToString(application.applicationTypeId) }}</td>
           <td>{{ convertApplicationSourceTypeIdToString(application.applicationSourceTypeId) }}</td>
           <td>{{ application.applicationDate | date: 'MM-dd-yyyy' }}</td>
-          <td><button (click)="previewApplication(application.applicationId)">View</button><button (click)="deleteApplication(application.applicationId)">Delete</button></td>
+          <td>
+            <div ngbDropdown class="dropdown">
+              <button ngbDropdownToggle class="btn btn-sm btn-secondary" type="button" aria-expanded="false">
+                Actions
+              </button>
+              <ul ngbDropdownMenu aria-labelledby="dropdownMenuButton1">
+                <li><button ngbDropdownItem (click)="previewApplication(application.applicationId)">View</button></li>
+                <li><button ngbDropdownItem (click)="manageApplication(application.applicationId)">Manage</button></li>
+                <li><button ngbDropdownItem (click)="deleteApplication(application.applicationId)">Delete</button></li>
+              </ul>
+            </div>
+          </td>
         </tr>
       </tbody>
     </table>
