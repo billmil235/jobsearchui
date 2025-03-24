@@ -6,4 +6,7 @@ export interface Application {
   companyWebSite: string;
   applicationTypeId: number;
   applicationSourceTypeId: number;
+  lowSalary: number;
+  highSalary: number;
+  requestedSalary: number;
 }

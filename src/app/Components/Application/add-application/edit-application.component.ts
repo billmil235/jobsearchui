@@ -26,6 +26,8 @@ export class EditApplicationComponent implements OnInit {
     companyWebSite: new FormControl(),
     applicationTypeId: new FormControl(),
     applicationSourceTypeId: new FormControl(),
+    lowSalary: new FormControl(),
+    highSalary: new FormControl()
   });
 
   constructor(private route: ActivatedRoute,
@@ -54,7 +56,10 @@ export class EditApplicationComponent implements OnInit {
       companyWebSite: this.applicationForm.value.companyWebSite,
       applicationTypeId: this.applicationForm.value.applicationTypeId,
       applicationSourceTypeId: this.applicationForm.value.applicationSourceTypeId,
-      applicationDate: new Date(formatDate(new Date(), 'yyyy-MM-dd', 'en-US'))
+      applicationDate: new Date(formatDate(new Date(), 'yyyy-MM-dd', 'en-US')),
+      lowSalary: this.applicationForm.value.lowSalary,
+      highSalary: this.applicationForm.value.highSalary,
+      requestedSalary: 0.00
     }
 
     this.applicationService.createApplication(application).subscribe();
