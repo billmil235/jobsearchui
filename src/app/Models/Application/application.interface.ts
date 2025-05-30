@@ -9,4 +9,5 @@ export interface Application {
   lowSalary: number;
   highSalary: number;
   requestedSalary: number;
+  jobTitle: string | null;
 }

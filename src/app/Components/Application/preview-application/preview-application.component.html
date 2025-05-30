@@ -10,7 +10,16 @@
   <div class="card-body">
     <div class="row">
       <div class="col-12">
+        <h6>Job Title: {{ applicationPreview.jobTitle }}</h6>
+      </div>
+      <div class="col-12">
         <h6>Application Date: {{ applicationPreview.applicationDate | date: 'MM-dd-yyyy' }}</h6>
+      </div>
+      <div class="col-12">
+        <h6>Salary Range: {{ applicationPreview.lowSalary }} to {{ applicationPreview.highSalary }}</h6>
+      </div>
+      <div class="col-12">
+        <h6>Requested Salary: {{ applicationPreview.requestedSalary }}</h6>
       </div>
     </div>
     <div class="row">

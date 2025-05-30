@@ -2,12 +2,12 @@ import {Component, Input, OnInit} from '@angular/core';
 import {DatePipe, NgForOf} from '@angular/common';
 import {Router} from '@angular/router';
 import {ApplicationService} from '../../../Services/Application/application.service';
-import {Application} from '../../../Models/Search/application.interface';
+import {Application} from '../../../Models/Application/application.interface';
 import {LookupService} from '../../../Services/lookup.service';
 import {ApplicationPreview} from '../../../Models/Application/application-preview.class';
 import {ApplicationPreviewService} from '../../../Services/Application/application-preview.service';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {FormsModule, NgModel} from '@angular/forms';
+import {FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-application-list',

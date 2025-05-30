@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {LookupService} from '../../../Services/lookup.service';
 import {formatDate, NgForOf} from '@angular/common';
-import {Application} from '../../../Models/Search/application.interface';
+import {Application} from '../../../Models/Application/application.interface';
 import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
 import {ApplicationService} from '../../../Services/Application/application.service';
 
@@ -27,7 +27,9 @@ export class EditApplicationComponent implements OnInit {
     applicationTypeId: new FormControl(),
     applicationSourceTypeId: new FormControl(),
     lowSalary: new FormControl(),
-    highSalary: new FormControl()
+    highSalary: new FormControl(),
+    requestedSalary: new FormControl(),
+    jobTitle: new FormControl(),
   });
 
   constructor(private route: ActivatedRoute,
@@ -59,7 +61,8 @@ export class EditApplicationComponent implements OnInit {
       applicationDate: new Date(formatDate(new Date(), 'yyyy-MM-dd', 'en-US')),
       lowSalary: this.applicationForm.value.lowSalary,
       highSalary: this.applicationForm.value.highSalary,
-      requestedSalary: 0.00
+      requestedSalary: this.applicationForm.value.requestedSalary,
+      jobTitle: this.applicationForm.value.jobTitle
     }
 
     this.applicationService.createApplication(application).subscribe();

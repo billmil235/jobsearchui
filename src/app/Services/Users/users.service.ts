@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthenticatedUser } from '../../Models/Users/authenticated-user.interface';
 import {tap} from 'rxjs';
-import {Application} from '../../Models/Search/application.interface';
 import {User} from '../../Models/Users/user.interface';
 
 @Injectable({
