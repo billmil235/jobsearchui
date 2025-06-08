@@ -86,7 +86,7 @@ export class EditApplicationComponent implements OnInit {
       companyWebSite: this.applicationForm.value.companyWebSite,
       applicationTypeId: this.applicationForm.value.applicationTypeId,
       applicationSourceTypeId: this.applicationForm.value.applicationSourceTypeId,
-      applicationDate: new Date(formatDate(new Date(), 'yyyy-MM-dd', 'en-US')),
+      applicationDate: this.applicationForm.value.applicationDate,
       lowSalary: this.applicationForm.value.lowSalary,
       highSalary: this.applicationForm.value.highSalary,
       requestedSalary: this.applicationForm.value.requestedSalary,
