@@ -38,7 +38,8 @@ export class EditApplicationComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private applicationService: ApplicationService,
               private router: Router,
-              public lookupService: LookupService) {}
+              public lookupService: LookupService) {
+  }
 
   ngOnInit() {
     if (this.route && this.route.queryParams) {
@@ -48,7 +49,7 @@ export class EditApplicationComponent implements OnInit {
       });
     }
 
-    if(this.applicationId) {
+    if (this.applicationId) {
       debugger;
       this.applicationService.getApplication(this.applicationId).subscribe(data => {
         this.applicationForm.setValue(data);
@@ -70,11 +71,27 @@ export class EditApplicationComponent implements OnInit {
       highSalary: this.applicationForm.value.highSalary,
       requestedSalary: this.applicationForm.value.requestedSalary,
       jobTitle: this.applicationForm.value.jobTitle
-    }
+    };
 
     this.applicationService.createApplication(application).subscribe();
 
     this.router.navigate(['/manage-search', this.searchId]);
+  }
+
+  updateExistingApplication() {
+    let application: Application = {
+      applicationId: this.applicationForm.value.applicationId,
+      searchId: this.searchId,
+      companyName: this.applicationForm.value.companyName,
+      companyWebSite: this.applicationForm.value.companyWebSite,
+      applicationTypeId: this.applicationForm.value.applicationTypeId,
+      applicationSourceTypeId: this.applicationForm.value.applicationSourceTypeId,
+      applicationDate: new Date(formatDate(new Date(), 'yyyy-MM-dd', 'en-US')),
+      lowSalary: this.applicationForm.value.lowSalary,
+      highSalary: this.applicationForm.value.highSalary,
+      requestedSalary: this.applicationForm.value.requestedSalary,
+      jobTitle: this.applicationForm.value.jobTitle
+    };
   }
 
   cancelApplication(): void {
