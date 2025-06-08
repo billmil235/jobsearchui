@@ -22,6 +22,9 @@ export class EditApplicationComponent implements OnInit {
   applicationId: string | undefined;
 
   applicationForm = new FormGroup({
+    applicationId: new FormControl(),
+    searchId: new FormControl(),
+    applicationDate: new FormControl(),
     companyName: new FormControl(),
     companyWebSite: new FormControl(),
     applicationTypeId: new FormControl(),
@@ -46,7 +49,11 @@ export class EditApplicationComponent implements OnInit {
     }
 
     if(this.applicationId) {
-      let application = this.applicationService.getApplication(this.applicationId);
+      debugger;
+      this.applicationService.getApplication(this.applicationId).subscribe(data => {
+        this.applicationForm.setValue(data);
+        debugger;
+      });
     }
   }
 

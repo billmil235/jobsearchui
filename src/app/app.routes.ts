@@ -5,7 +5,6 @@ import {authGuard} from './Services/auth.guard';
 import {JobSearchComponent} from './Components/Search/job-search/job-search.component';
 import {SearchManagerComponent} from './Components/Search/search-manager/search-manager.component';
 import {EditApplicationComponent} from './Components/Application/add-application/edit-application.component';
-import {ManageApplicationComponent} from './Components/Application/manage-application/manage-application.component';
 
 export const routes: Routes = [
   {
@@ -30,9 +29,6 @@ export const routes: Routes = [
     path: 'manage-search/:searchId', component: SearchManagerComponent, canActivate: [authGuard]
   },
   {
-    path: 'edit-application/:searchId', component: EditApplicationComponent, canActivate: [authGuard]
-  },
-  {
-    path: 'manage-application/:applicationId', component: ManageApplicationComponent, canActivate: [authGuard]
+    path: 'edit-application', component: EditApplicationComponent, canActivate: [authGuard]
   }
 ];

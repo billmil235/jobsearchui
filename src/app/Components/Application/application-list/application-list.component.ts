@@ -39,7 +39,7 @@ export class ApplicationListComponent implements OnInit {
   }
 
   createNewApplication() {
-    this.router.navigate(['/edit-application', this.searchId]);
+    this.router.navigate(['/edit-application', {searchId: this.searchId}]);
   }
 
   convertApplicationTypeIdToString(applicationTypeId: number): string {
@@ -69,7 +69,7 @@ export class ApplicationListComponent implements OnInit {
   }
 
   manageApplication(applicationId: string | undefined): void {
-    this.router.navigate(['/manage-application', applicationId]);
+    this.router.navigate(['/edit-application', {sourceId: null, applicationId: applicationId}]);
   }
 
   refreshData(): void {

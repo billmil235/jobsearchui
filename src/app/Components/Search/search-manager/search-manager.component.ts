@@ -1,9 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {SearchListService} from '../../../Services/Searches/search-list.service';
-import {Search} from '../../../Models/Search/search.interface';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ApplicationListComponent} from '../../Application/application-list/application-list.component';
-import {ManageApplicationComponent} from '../../Application/manage-application/manage-application.component';
 import {PreviewApplicationComponent} from '../../Application/preview-application/preview-application.component';
 
 @Component({
@@ -11,7 +9,6 @@ import {PreviewApplicationComponent} from '../../Application/preview-application
   standalone: true,
   imports: [
     ApplicationListComponent,
-    ManageApplicationComponent,
     PreviewApplicationComponent
   ],
   templateUrl: './search-manager.component.html',

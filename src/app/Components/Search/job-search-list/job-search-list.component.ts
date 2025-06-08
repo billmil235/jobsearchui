@@ -34,6 +34,6 @@ export class JobSearchListComponent implements OnInit {
   }
 
   createNewApplication(searchId: string) {
-    this.router.navigate(['/edit-application', searchId]);
+    this.router.navigate(['/edit-application', {searchId: searchId}]);
   }
 }
