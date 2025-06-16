@@ -16,7 +16,7 @@
           </div>
           <div class="row p-1">
             <div class="col-3">Job Title</div>
-            <div class="col-9"><input type="text" id="jobTitle" class="form-control" formControlName="jobTitle"></div>
+            <div class="col-9"><input type="text" maxlength="100" id="jobTitle" class="form-control" formControlName="jobTitle"></div>
           </div>
           <div class="row p-1">
             <div class="col-3">Company Web Site</div>
@@ -56,8 +56,8 @@
     </div>
     <div class="card-footer">
       <div class="d-flex justify-content-between p-3">
-        <button class="btn btn-primary" (click)="createNewApplication()">Save Application</button>
-        <button class="btn btn-secondary" (click)="cancelApplication()">Cancel</button>
+        <button class="btn btn-primary" (click)="saveApplication()">Save Application</button>
+        <button class="btn btn-secondary" (click)="cancelApplication()">Close</button>
       </div>
     </div>
   </div>

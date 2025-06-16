@@ -50,11 +50,18 @@ export class EditApplicationComponent implements OnInit {
     }
 
     if (this.applicationId) {
-      debugger;
       this.applicationService.getApplication(this.applicationId).subscribe(data => {
         this.applicationForm.setValue(data);
-        debugger;
       });
+    }
+  }
+
+  saveApplication() {
+    if (this.applicationForm.value.applicationId == undefined) {
+      this.createNewApplication();
+    }
+    else {
+      this.updateExistingApplication();
     }
   }
 
@@ -92,6 +99,8 @@ export class EditApplicationComponent implements OnInit {
       requestedSalary: this.applicationForm.value.requestedSalary,
       jobTitle: this.applicationForm.value.jobTitle
     };
+
+    this.applicationService.updateApplication(application).subscribe();
   }
 
   cancelApplication(): void {

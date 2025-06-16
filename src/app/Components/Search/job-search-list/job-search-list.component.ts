@@ -26,7 +26,7 @@ export class JobSearchListComponent implements OnInit {
   }
 
   newJobSearch() {
-    this.router.navigate(['/createjobsearch']);
+    this.router.navigate(['/create-job-search']);
   }
 
   manageSearch(searchId: string) {

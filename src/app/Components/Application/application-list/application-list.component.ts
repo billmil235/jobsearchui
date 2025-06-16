@@ -69,7 +69,7 @@ export class ApplicationListComponent implements OnInit {
   }
 
   manageApplication(applicationId: string | undefined): void {
-    this.router.navigate(['/edit-application', {sourceId: null, applicationId: applicationId}]);
+    this.router.navigate(['/edit-application', {searchId: this.searchId, applicationId: applicationId}]);
   }
 
   refreshData(): void {
