@@ -26,7 +26,6 @@ export class PreviewApplicationComponent implements OnInit, OnDestroy {
     this.applicationPreviewService.applicationPreviewSubject.subscribe(data => {
       this.applicationPreview = data[0];
       this.searchId = data[1];
-      debugger;
     })
   }
 
