@@ -32,6 +32,6 @@ export class PreviewApplicationComponent implements OnInit, OnDestroy {
   }
 
   manageApplication(applicationId: string): void {
-    this.router.navigate(['/manage-application', applicationId]);
+    this.router.navigate(['/edit-application', applicationId]);
   }
 }
