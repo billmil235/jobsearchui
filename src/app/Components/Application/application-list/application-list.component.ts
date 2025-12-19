@@ -63,7 +63,7 @@ export class ApplicationListComponent implements OnInit {
   previewApplication(applicationId: string | undefined): void {
     if(applicationId !== undefined) {
       this.applicationPreviewService.getApplicationPreview(applicationId).subscribe((preview: ApplicationPreview) => {
-        this.applicationPreviewService.applicationPreviewSubject.next(preview);
+        this.applicationPreviewService.applicationPreviewSubject.next([preview, this.searchId]);
       })
     }
   }

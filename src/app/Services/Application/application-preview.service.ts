@@ -8,7 +8,7 @@ import {HttpClient} from '@angular/common/http';
 })
 
 export class ApplicationPreviewService {
-  applicationPreviewSubject: Subject<ApplicationPreview> = new Subject<ApplicationPreview>();
+  applicationPreviewSubject: Subject<[ApplicationPreview, string]> = new Subject<[ApplicationPreview, string]>();
   baseUrl = '/api';
 
   constructor(private httpClient: HttpClient) { }
