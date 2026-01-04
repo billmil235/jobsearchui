@@ -1,11 +1,14 @@
-<div class="contacts-container">
-  <h2>Contacts</h2>
-
-  <div class="action-buttons">
-    <button (click)="addContact()" class="btn btn-primary">Add Contact</button>
+<div class="card rounded border-2">
+  <div class="card-header">
+    <div class="row">
+      <div class="d-flex justify-content-between">
+        <h5 class="card-title text-nowrap">Contact List</h5>
+        <button (click)="addContact()" class="btn btn-primary">Add Contact</button>
+      </div>
+    </div>
   </div>
 
-  <div class="contacts-list">
+  <div class="card-body">
     <div *ngFor="let contact of contacts" class="contact-item">
       <div class="contact-info">
         <!-- Replace with your actual contact properties -->

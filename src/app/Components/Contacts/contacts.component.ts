@@ -3,9 +3,7 @@ import { ContactsListComponent } from './contacts-list/contacts-list.component';
 
 @Component({
   selector: 'app-contacts',
-  template: `
-    <app-contacts-list></app-contacts-list>
-  `,
+  templateUrl: 'contacts.component.html',
   standalone: true,
   imports: [ContactsListComponent]
 })
