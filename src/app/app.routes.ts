@@ -6,6 +6,7 @@ import {JobSearchComponent} from './Components/Search/job-search/job-search.comp
 import {SearchManagerComponent} from './Components/Search/search-manager/search-manager.component';
 import {EditApplicationComponent} from './Components/Application/add-application/edit-application.component';
 import {NewJobSearchComponent} from './Components/Search/new-job-search/new-job-search.component';
+import { ContactsComponent } from './Components/Contacts/contacts.component';
 
 export const routes: Routes = [
   {
@@ -34,5 +35,8 @@ export const routes: Routes = [
   },
   {
     path: 'create-job-search', component: NewJobSearchComponent, canActivate: [authGuard]
+  },
+  {
+    path: 'contacts-manager', component: ContactsComponent, canActivate: [authGuard]
   }
 ];

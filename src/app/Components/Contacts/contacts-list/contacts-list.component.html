@@ -1,0 +1,22 @@
+<div class="contacts-container">
+  <h2>Contacts</h2>
+
+  <div class="action-buttons">
+    <button (click)="addContact()" class="btn btn-primary">Add Contact</button>
+  </div>
+
+  <div class="contacts-list">
+    <div *ngFor="let contact of contacts" class="contact-item">
+      <div class="contact-info">
+        <!-- Replace with your actual contact properties -->
+        <span>{{ contact.name }}</span>
+        <span>{{ contact.email }}</span>
+        <span>{{ contact.phone }}</span>
+      </div>
+      <div class="contact-actions">
+        <button (click)="editContact(contact.id)" class="btn btn-secondary">Edit</button>
+        <button (click)="deleteContact(contact.id)" class="btn btn-danger">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
